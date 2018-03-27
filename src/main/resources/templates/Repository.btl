@@ -1,0 +1,27 @@
+package ${packageName}.repository;
+
+import com.em248.model.${obj.name};
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
+/**
+ * Created by ${author} on ${data()}.
+ */
+
+public interface ${entityName}Repository extends JpaRepository<${obj.name}, String>,JpaSpecificationExecutor<${obj.name}> {
+
+    Page<GoodsRecord> findAllByUserIdAndStatus(String userId,Integer status,Pageable pageable);
+
+    Page<GoodsRecord> findAllByUserId(String userId,Pageable pageable);
+
+    Page<GoodsRecord> findAllByUserIdAndType(String userId, Integer type,Pageable pageable);
+
+    Page<GoodsRecord> findAllByUserIdAndTypeAndStatus(String userId, Integer type, Integer status, Pageable pageable);
+
+    Page<GoodsRecord> findAllByTypeAndStatus(Integer type,Integer status, Pageable pageable);
+
+    Page<GoodsRecord> findAllByType(Integer type,Pageable pageable);
+
+}

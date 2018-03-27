@@ -1,0 +1,59 @@
+package ${packageName};
+
+import javax.persistence.*;
+import java.util.Date;
+import java.util.UUID;
+
+/**
+ * Created by Administrator on 2018/1/5.
+ */
+
+@Entity
+@Table(name = "sys_user")
+public class User {
+    @Id
+    private String id = UUID.randomUUID().toString();
+
+    @Column(unique = true)
+    private String email;
+
+    private String nickName;
+
+    private String iconUrl;
+
+    @JsonIgnore
+    private String password;
+
+    @JsonIgnore
+    private Integer passwordChangeRequeir = 1;
+
+    private Integer verify = 1;
+
+    private Integer active = 1;
+
+    @JsonIgnore
+    private Integer admin =1;
+
+    private String phoneNumber;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createAt;
+    @Temporal(TemporalType.TIMESTAMP)
+
+    private Date updateAt;
+    @Temporal(TemporalType.TIMESTAMP)
+
+    private Date lastModifyPassword;
+
+    @JsonIgnore
+    private Integer version = 0;
+
+
+    @Column(name = "role_id")
+    private String roleId;
+
+
+    public User(String id) {
+        this.id = id;
+    }
+}
